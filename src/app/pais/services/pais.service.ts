@@ -1,3 +1,4 @@
+import { Country } from './../interfaces/pais-interface';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -11,9 +12,14 @@ export class PaisService {
 
   constructor(private http: HttpClient) { }
 
-  buscarPais(termino:string): Observable<any>{
+  buscarPais(termino:string): Observable<Country[]>{
     const url = `${ this.apiUrl}/name/${termino}`;
-    return this.http.get( url);
+    return this.http.get<Country[]>( url);
+  }
+
+  bucarCapital(termino: string): Observable<Country[]>{
+    const url = `${this.apiUrl}/capital/${termino}`;
+    return this.http.get<Country[]>(url);
   }
 
 
