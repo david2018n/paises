@@ -6,7 +6,11 @@ import { debounceTime, Subject } from 'rxjs';
 @Component({
   selector: 'app-pais-input',
   templateUrl: './pais-input.component.html',
-  styles: [
+  styles: [`
+  li{
+    cursor: pointer;
+  }
+  `
   ]
 })
 export class PaisInputComponent implements OnInit {
